@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SERIES } from '../pages/data';
+import { supabase } from '../lib/supabase';
 
 export default function SeriesGrid() {
   const navigate = useNavigate();
+  const [counts, setCounts] = useState({});
+
+  useEffect(() => {
+    fetchCounts();
+  }, []);
+
+  const fetchCounts = async () => {
+    const { data } = await supabase.from('products').select('series');
+    if (!data) return;
+    const countMap = {};
+    data.forEach(p => {
+      countMap[p.series] = (countMap[p.series] || 0) + 1;
+    });
+    setCounts(countMap);
+  };
+
   return (
     <section>
       <div className="flex items-end justify-between mb-5">
@@ -20,19 +37,23 @@ export default function SeriesGrid() {
           <div
             key={series.id}
             onClick={() => navigate(`/category/${series.name}`)}
-            className="series-tile text-center group cursor-pointer"
+            className="text-center group cursor-pointer"
           >
             <div className="aspect-square rounded-xl overflow-hidden relative bg-gray-100 mb-2">
               <img
                 src={series.img}
                 alt={series.name}
-                className="series-img w-full h-full object-cover"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-xl" />
-            </div>
-            <div className="text-xs font-bold text-ink group-hover:text-gray-600 transition-colors">
-              {series.name}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl" />
+              {/* Name overlay on image */}
+              <div className="absolute bottom-0 left-0 right-0 p-2 text-center">
+                <div className="text-white text-xs font-bold drop-shadow-lg leading-tight">{series.name}</div>
+                {counts[series.name] !== undefined && (
+                  <div className="text-white/70 text-[10px] mt-0.5">{counts[series.name]} items</div>
+                )}
+              </div>
             </div>
           </div>
         ))}
