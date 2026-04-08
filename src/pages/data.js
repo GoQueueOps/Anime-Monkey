@@ -1,9 +1,9 @@
 export const SERIES = [
-  { id: 1, name: 'Demon Slayer', img: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=300&q=80&fit=crop' },
-  { id: 2, name: 'Naruto', img: 'https://images.unsplash.com/photo-1559181567-c3190d45a927?w=300&h=300&q=80&fit=crop' },
-  { id: 3, name: 'One Piece', img: 'https://images.unsplash.com/photo-1618336753974-aae8e04506aa?w=300&h=300&q=80&fit=crop' },
+  { id: 1, name: 'Demon Slayer', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFhMymX0i_nsi79m0Ke7Kpz5B5dcYzp3hPGQ&s' },
+  { id: 2, name: 'Naruto', img: 'https://www.animenewsnetwork.com/thumbnails/crop1200x630gHA/video/category/62/key_art_naruto.jpg' },
+  { id: 3, name: 'One Piece', img: 'https://www.tvguide.com/a/img/catalog/provider/2/13/2-bb90aabe99610ecd07e1e6c5e9f618c4.jpg' },
   { id: 4, name: 'Jujutsu Kaisen', img: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=300&h=300&q=80&fit=crop' },
-  { id: 5, name: 'Dragon Ball', img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=300&h=300&q=80&fit=crop' },
+  { id: 5, name: 'Dragon Ball', img: 'https://m.media-amazon.com/images/S/pv-target-images/a946e7875a5135d146263944c42f601727d1901dc29982fbd88e854238175bf0.jpg' },
   { id: 6, name: 'Attack on Titan', img: 'https://images.unsplash.com/photo-1604537529428-15bcbeecfe4d?w=300&h=300&q=80&fit=crop' },
 ];
 
