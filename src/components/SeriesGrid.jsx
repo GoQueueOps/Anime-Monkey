@@ -34,7 +34,6 @@ export default function SeriesGrid() {
             <div className="text-xs font-bold text-ink group-hover:text-gray-600 transition-colors">
               {series.name}
             </div>
-            <div className="text-[10px] text-gray-400 mt-0.5">{series.count} items</div>
           </div>
         ))}
       </div>
