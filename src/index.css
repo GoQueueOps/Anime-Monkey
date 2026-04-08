@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: #111111;
+    background: #ffffff;
+    -webkit-font-smoothing: antialiased;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+@layer components {
+  /* Ticker animation */
+  .ticker-track {
+    animation: ticker 30s linear infinite;
+  }
+  @keyframes ticker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Product card — hover reveal */
+  .product-card:hover .add-to-bag-btn {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .add-to-bag-btn {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.22s ease, transform 0.22s ease;
+  }
+  .product-card:hover .product-img {
+    transform: scale(1.05);
+  }
+  .product-img {
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .product-card:hover .product-overlay {
+    background: rgba(0,0,0,0.1);
+  }
+  .product-overlay {
+    transition: background 0.3s ease;
+  }
+
+  /* Series tile hover */
+  .series-tile:hover .series-img {
+    transform: scale(1.07);
+  }
+  .series-img {
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Sidebar item */
+  .sb-item {
+    border-left: 2px solid transparent;
+    transition: all 0.15s ease;
+  }
+  .sb-item:hover {
+    background: #fafafa;
+    color: #111;
+    border-left-color: transparent;
+  }
+  .sb-item.active {
+    color: #111;
+    font-weight: 600;
+    border-left-color: #111;
+    background: #f5f5f5;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #aaa; }
